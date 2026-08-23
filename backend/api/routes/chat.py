@@ -8,12 +8,19 @@ from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 
 from backend.models.scheme import Scheme
-from backend.conversation.conversation_manager import ConversationManager
+
+from backend.conversation.conversation_manager import (
+    ConversationManager
+)
 
 from backend.conversation.chat_history_store import (
     save_chat_message,
     get_chat_history,
     delete_chat_history
+)
+
+from backend.llm.relevance_classifier import (
+    is_scheme_related
 )
 
 
@@ -37,7 +44,10 @@ class ChatRequest(BaseModel):
 # SESSION STORAGE
 # ==========================================================
 
-conversation_sessions: Dict[str, ConversationManager] = {}
+conversation_sessions: Dict[
+    str,
+    ConversationManager
+] = {}
 
 
 # ==========================================================
@@ -76,6 +86,7 @@ def get_all_schemes() -> List[Scheme]:
     )
 
     if not os.path.exists(schemes_path):
+
         raise FileNotFoundError(
             f"schemes.json not found at: {schemes_path}"
         )
@@ -104,7 +115,8 @@ def get_conversation_manager(
     session_id: str
 ) -> ConversationManager:
     """
-    Get the existing conversation for a session.
+    Get the existing conversation manager.
+
     Create a new conversation if necessary.
     """
 
@@ -112,180 +124,15 @@ def get_conversation_manager(
 
         schemes = get_all_schemes()
 
-        conversation_sessions[session_id] = (
-            ConversationManager(schemes)
+        conversation_sessions[
+            session_id
+        ] = ConversationManager(
+            schemes
         )
 
-    return conversation_sessions[session_id]
-
-
-# ==========================================================
-# RELEVANCE CHECK
-# ==========================================================
-
-def is_scheme_related(message: str, session_id: str | None = None) -> bool:
-    """
-    Check whether the user's message is related to government
-    schemes, eligibility, benefits, applications, or is a valid
-    follow-up answer in an existing conversation.
-    """
-
-    message = message.lower().strip()
-
-    # Direct scheme-related words
-    scheme_keywords = [
-
-        # General
-        "scheme",
-        "schemes",
-        "government scheme",
-        "government schemes",
-        "welfare",
-        "welfare scheme",
-        "eligible",
-        "eligibility",
-        "qualify",
-        "qualification",
-
-        # Benefits
-        "benefit",
-        "benefits",
-        "financial assistance",
-        "support",
-        "subsidy",
-        "subsidies",
-
-        # Application
-        "apply",
-        "application",
-        "apply for",
-        "how to apply",
-        "documents",
-        "document",
-        "required documents",
-        "registration",
-        "deadline",
-
-        # Agriculture
-        "farmer",
-        "farming",
-        "agriculture",
-        "agricultural",
-        "crop",
-        "land",
-        "acre",
-        "acres",
-
-        # Education
-        "student",
-        "students",
-        "education",
-        "scholarship",
-        "college",
-        "school",
-
-        # Employment
-        "employment",
-        "job",
-        "jobs",
-        "unemployment",
-        "self employment",
-        "startup",
-        "business",
-        "loan",
-
-        # Social welfare
-        "pension",
-        "housing",
-        "health",
-        "healthcare",
-        "medical",
-        "ration",
-        "women",
-        "woman",
-        "girl",
-        "senior citizen",
-        "disabled",
-        "disability",
-
-        # Common government schemes
-        "pm-kisan",
-        "pm kisan",
-        "rythu bharosa",
-        "ysr rythu bharosa",
-        "sukanya",
-        "ayushman",
-        "aadhar",
-        "aadhaar",
+    return conversation_sessions[
+        session_id
     ]
-
-    # Profile information.
-    # These are important because users may answer follow-up
-    # questions with only age, income, location, etc.
-    profile_keywords = [
-
-        "years old",
-        "year old",
-        "i am",
-        "my age",
-        "age is",
-
-        "income",
-        "annual income",
-        "salary",
-        "earn",
-        "earning",
-
-        "rupees",
-        "rupee",
-        "rs",
-        "₹",
-        "lakh",
-        "lakhs",
-
-        "andhra pradesh",
-        "telangana",
-        "india",
-
-        "male",
-        "female",
-
-        "farmer",
-        "student",
-        "worker",
-        "employee",
-        "unemployed",
-
-        "acre",
-        "acres",
-        "land"
-    ]
-
-    all_keywords = scheme_keywords + profile_keywords
-
-    # Check keywords
-    if any(keyword in message for keyword in all_keywords):
-        return True
-
-    # ------------------------------------------------------
-    # Allow short answers during an existing conversation.
-    #
-    # Example:
-    # Bot: "Please provide your age."
-    # User: "20"
-    #
-    # This should NOT be considered irrelevant.
-    # ------------------------------------------------------
-
-    if session_id and session_id in conversation_sessions:
-
-        # Allow numeric or short follow-up answers
-        words = message.split()
-
-        if len(words) <= 10:
-            return True
-
-    return False
 
 
 # ==========================================================
@@ -297,64 +144,74 @@ def chat(request: ChatRequest):
 
     try:
 
+        # ----------------------------------------------
+        # CLEAN USER MESSAGE
+        # ----------------------------------------------
+
         user_message = request.message.strip()
 
-        # ----------------------------------------------
-        # EMPTY MESSAGE CHECK
-        # ----------------------------------------------
-
         if not user_message:
+
             raise HTTPException(
                 status_code=400,
                 detail="Message cannot be empty."
             )
 
         # ----------------------------------------------
-        # GENERATE SESSION ID IF NEEDED
+        # GENERATE SESSION ID
         # ----------------------------------------------
 
         session_id = request.session_id
 
         if not session_id:
-            session_id = str(uuid.uuid4())
+
+            session_id = str(
+                uuid.uuid4()
+            )
 
         # ----------------------------------------------
-        # RELEVANCE CHECK
+        # CHECK QUESTION RELEVANCE
         # ----------------------------------------------
 
         if not is_scheme_related(
-            user_message,
-            session_id
+            user_message
         ):
 
-            result = {
-                "response_type": "irrelevant",
-                "message": (
-                    "I'm sorry, but I am not able to answer this question. "
-                    "I can only help you find government schemes, understand "
-                    "scheme benefits, check your eligibility, and guide you "
-                    "through the application process."
-                ),
-                "profile": {},
-                "missing_information": [],
-                "schemes": [],
-                "session_id": session_id
-            }
+            response_message = (
+                "I'm sorry, but I am not able to answer "
+                "this question. I can only help you find "
+                "government schemes, understand scheme "
+                "benefits, check your eligibility, and "
+                "guide you through the application process."
+            )
 
-            # Save irrelevant conversation messages
+            # Save user message
             save_chat_message(
                 session_id=session_id,
                 role="user",
                 content=user_message
             )
 
+            # Save assistant response
             save_chat_message(
                 session_id=session_id,
                 role="assistant",
-                content=result["message"]
+                content=response_message
             )
 
-            return result
+            return {
+                "response_type": "irrelevant",
+
+                "message": response_message,
+
+                "profile": {},
+
+                "missing_information": [],
+
+                "schemes": [],
+
+                "session_id": session_id
+            }
 
         # ----------------------------------------------
         # SAVE USER MESSAGE
@@ -375,7 +232,23 @@ def chat(request: ChatRequest):
         )
 
         # ----------------------------------------------
-        # PROCESS MESSAGE THROUGH RAG PIPELINE
+        # PROCESS MESSAGE
+        #
+        # Existing pipeline:
+        #
+        # Profile Extraction
+        #        ↓
+        # Missing Information
+        #        ↓
+        # Scheme Filtering
+        #        ↓
+        # RAG Retrieval
+        #        ↓
+        # Eligibility Engine
+        #        ↓
+        # Ranking
+        #        ↓
+        # Gemini Response
         # ----------------------------------------------
 
         result = manager.process_message(
@@ -391,18 +264,23 @@ def chat(request: ChatRequest):
             save_chat_message(
                 session_id=session_id,
                 role="assistant",
-                content=result["message"]
+                content=result[
+                    "message"
+                ]
             )
 
         # ----------------------------------------------
         # ADD SESSION ID
         # ----------------------------------------------
 
-        result["session_id"] = session_id
+        result[
+            "session_id"
+        ] = session_id
 
         return result
 
     except HTTPException:
+
         raise
 
     except FileNotFoundError as error:
@@ -461,16 +339,26 @@ def fetch_chat_history(
 # ==========================================================
 
 @router.delete("/chat/{session_id}")
-def clear_chat(session_id: str):
+def clear_chat(
+    session_id: str
+):
 
     try:
 
-        # Remove conversation from RAM
+        # ----------------------------------------------
+        # REMOVE CONVERSATION FROM MEMORY
+        # ----------------------------------------------
+
         if session_id in conversation_sessions:
 
-            del conversation_sessions[session_id]
+            del conversation_sessions[
+                session_id
+            ]
 
-        # Remove chat history from Chroma Cloud
+        # ----------------------------------------------
+        # DELETE CHAT HISTORY
+        # ----------------------------------------------
+
         delete_chat_history(
             session_id
         )
@@ -479,6 +367,7 @@ def clear_chat(session_id: str):
             "message": (
                 "Conversation cleared successfully."
             ),
+
             "session_id": session_id
         }
 
