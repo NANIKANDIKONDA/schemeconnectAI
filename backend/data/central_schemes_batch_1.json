@@ -1,0 +1,200 @@
+[
+  {
+    "scheme_id": "pm_vishwakarma",
+    "scheme_name": "PM Vishwakarma",
+    "category": "Employment",
+    "state": null,
+    "description": "Central Government scheme providing recognition, skill development, toolkit support, collateral-free credit and marketing support to eligible traditional artisans and craftspeople working in specified trades.",
+    "eligibility": {
+      "min_age": 18,
+      "max_age": null,
+      "max_income": null,
+      "occupation": [
+        "Carpenter",
+        "Boat Maker",
+        "Armourer",
+        "Blacksmith",
+        "Metal Artisan",
+        "Tool Kit Maker",
+        "Locksmith",
+        "Goldsmith",
+        "Potter",
+        "Sculptor",
+        "Stone Worker",
+        "Cobbler",
+        "Footwear Artisan",
+        "Mason",
+        "Basket Maker",
+        "Mat Maker",
+        "Broom Maker",
+        "Coir Weaver",
+        "Toy Maker",
+        "Barber",
+        "Garland Maker",
+        "Washerman",
+        "Tailor",
+        "Fishing Net Maker"
+      ],
+      "states": [],
+      "categories": [],
+      "min_land_acres": null,
+      "max_land_acres": null,
+      "genders": [],
+      "education": []
+    },
+    "target_beneficiaries": [
+      "Traditional artisans",
+      "Craftspeople",
+      "Self-employed workers in notified traditional trades"
+    ],
+    "benefits": [
+      "PM Vishwakarma Certificate and ID Card",
+      "Skill training with stipend",
+      "Toolkit incentive up to Rs 15000",
+      "Collateral-free enterprise development loans up to Rs 3 lakh in eligible stages",
+      "Digital transaction incentives",
+      "Marketing support"
+    ],
+    "documents_required": [
+      "Aadhaar",
+      "Mobile number",
+      "Bank account details",
+      "Occupation or trade verification as required"
+    ],
+    "how_to_apply": "Apply through an authorised Common Service Centre or the official PM Vishwakarma registration system.",
+    "official_source": "https://pmvishwakarma.gov.in/",
+    "status": "active",
+    "last_updated": "2026-08-22"
+  },
+  {
+    "scheme_id": "pm_svanidhi",
+    "scheme_name": "PM SVANidhi",
+    "category": "Employment",
+    "state": null,
+    "description": "Central Government credit support scheme for eligible street vendors to help support and expand their livelihood and business activities.",
+    "eligibility": {
+      "min_age": 18,
+      "max_age": null,
+      "max_income": null,
+      "occupation": [
+        "Street Vendor",
+        "Vendor",
+        "Hawker"
+      ],
+      "states": [],
+      "categories": [],
+      "min_land_acres": null,
+      "max_land_acres": null,
+      "genders": [],
+      "education": []
+    },
+    "target_beneficiaries": [
+      "Street vendors",
+      "Urban vendors",
+      "Eligible peri-urban and census-town vendors"
+    ],
+    "benefits": [
+      "Working capital loan support",
+      "Enhanced eligible loan tranches",
+      "Digital transaction incentives",
+      "Access to UPI-linked credit facilities for eligible beneficiaries"
+    ],
+    "documents_required": [
+      "Identity proof",
+      "Aadhaar",
+      "Vendor certificate or other local-body documentation where applicable",
+      "Bank account details"
+    ],
+    "how_to_apply": "Apply through participating banks, financial institutions or the authorised PM SVANidhi application process.",
+    "official_source": "https://pmsvanidhi.mohua.gov.in/",
+    "status": "active",
+    "last_updated": "2026-08-22"
+  },
+  {
+    "scheme_id": "pmegp",
+    "scheme_name": "Prime Minister's Employment Generation Programme",
+    "category": "Entrepreneurship",
+    "state": null,
+    "description": "Credit-linked subsidy programme intended to support new micro-enterprises and generate self-employment opportunities in rural and urban areas.",
+    "eligibility": {
+      "min_age": 18,
+      "max_age": null,
+      "max_income": null,
+      "occupation": [
+        "Unemployed",
+        "Entrepreneur",
+        "Student",
+        "Artisan",
+        "Self Employed"
+      ],
+      "states": [],
+      "categories": [],
+      "min_land_acres": null,
+      "max_land_acres": null,
+      "genders": [],
+      "education": []
+    },
+    "target_beneficiaries": [
+      "Unemployed youth",
+      "Prospective entrepreneurs",
+      "Traditional artisans"
+    ],
+    "benefits": [
+      "Support for establishing eligible new micro-enterprises",
+      "Credit-linked subsidy assistance subject to scheme rules",
+      "Employment generation support"
+    ],
+    "documents_required": [
+      "Aadhaar",
+      "Project report",
+      "Educational documents where applicable",
+      "Bank account details",
+      "Category certificate where applicable"
+    ],
+    "how_to_apply": "Apply through the official PMEGP portal and complete the required application, project and bank procedures.",
+    "official_source": "https://pmegp.msme.gov.in/",
+    "status": "active",
+    "last_updated": "2026-08-22"
+  },
+  {
+    "scheme_id": "pmay_u_2",
+    "scheme_name": "Pradhan Mantri Awas Yojana - Urban 2.0",
+    "category": "Housing",
+    "state": null,
+    "description": "Central Government urban housing scheme for eligible families without a pucca house, covering defined income groups and different housing assistance components.",
+    "eligibility": {
+      "min_age": 18,
+      "max_age": null,
+      "max_income": 900000,
+      "occupation": [],
+      "states": [],
+      "categories": [],
+      "min_land_acres": null,
+      "max_land_acres": null,
+      "genders": [],
+      "education": []
+    },
+    "target_beneficiaries": [
+      "Urban families without a pucca house",
+      "Economically Weaker Section households",
+      "Lower Income Group households",
+      "Middle Income Group households"
+    ],
+    "benefits": [
+      "Housing assistance through applicable PMAY-U 2.0 components",
+      "Support for eligible construction or housing acquisition",
+      "Affordable housing and rental housing options under applicable components"
+    ],
+    "documents_required": [
+      "Aadhaar",
+      "Income proof",
+      "Residence details",
+      "Property or land documents where applicable",
+      "Other documents required by the relevant PMAY-U 2.0 component"
+    ],
+    "how_to_apply": "Apply through the official PMAY-U 2.0 process or the relevant Urban Local Body or State implementing authority.",
+    "official_source": "https://pmay-urban.gov.in/",
+    "status": "active",
+    "last_updated": "2026-08-22"
+  }
+]

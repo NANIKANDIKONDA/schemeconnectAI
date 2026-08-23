@@ -1,0 +1,370 @@
+[
+  {
+    "category": "Agriculture",
+    "states": [
+      "All"
+    ],
+    "description": "Income support to all landholding farmer families.",
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "education": [],
+      "categories": [],
+      "min_land_acres": null,
+      "max_land_acres": 5.0,
+      "occupations": [
+        "Farmer"
+      ],
+      "genders": []
+    },
+    "target_beneficiaries": [
+      "farmer",
+      "all"
+    ],
+    "benefits": [
+      "Rs 6000 per year"
+    ],
+    "documents_required": [
+      "Aadhaar",
+      "Bank Details",
+      "Land Records"
+    ],
+    "how_to_apply": "Apply online at PM-KISAN portal.",
+    "status": "active",
+    "id": "SCH001",
+    "name": "PM-KISAN",
+    "official_link": "pmkisan.gov.in",
+    "state": "All"
+  },
+  {
+    "category": "Agriculture",
+    "states": [
+      "Andhra Pradesh"
+    ],
+    "description": "Financial assistance to farmers in Andhra Pradesh.",
+    "eligibility": {
+      "min_age": 18,
+      "max_age": null,
+      "max_income": null,
+      "education": [],
+      "categories": [],
+      "min_land_acres": 0.1,
+      "max_land_acres": null,
+      "occupations": [
+        "Farmer"
+      ],
+      "genders": []
+    },
+    "target_beneficiaries": [
+      "farmer"
+    ],
+    "benefits": [
+      "Rs 13500 per year"
+    ],
+    "documents_required": [
+      "Aadhaar",
+      "Land Records"
+    ],
+    "how_to_apply": "Apply via village secretariats.",
+    "status": "active",
+    "id": "SCH002",
+    "name": "AP YSR Rythu Bharosa",
+    "official_link": "ysrrythubharosa.ap.gov.in",
+    "state": "Andhra Pradesh"
+  },
+  {
+    "category": "Education",
+    "states": [
+      "All"
+    ],
+    "description": "Scholarships for students from minority communities.",
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": 200000.0,
+      "education": [],
+      "categories": [
+        "Minority"
+      ],
+      "min_land_acres": null,
+      "max_land_acres": null,
+      "occupations": [
+        "Student"
+      ],
+      "genders": []
+    },
+    "target_beneficiaries": [
+      "student"
+    ],
+    "benefits": [
+      "Financial assistance for education"
+    ],
+    "documents_required": [
+      "Income Certificate",
+      "Mark sheets"
+    ],
+    "how_to_apply": "Apply via NSP portal.",
+    "status": "active",
+    "id": "SCH003",
+    "name": "National Scholarship Portal",
+    "official_link": "scholarships.gov.in",
+    "state": "All"
+  },
+  {
+    "category": "Education",
+    "states": [
+      "Andhra Pradesh"
+    ],
+    "description": "Full fee reimbursement for eligible students in AP.",
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": 250000.0,
+      "education": [],
+      "categories": [],
+      "min_land_acres": null,
+      "max_land_acres": null,
+      "occupations": [
+        "Student"
+      ],
+      "genders": []
+    },
+    "target_beneficiaries": [
+      "student"
+    ],
+    "benefits": [
+      "Full fee reimbursement"
+    ],
+    "documents_required": [
+      "Income Certificate",
+      "Aadhaar",
+      "Admission Details"
+    ],
+    "how_to_apply": "Via college administration.",
+    "status": "active",
+    "id": "SCH004",
+    "name": "Jagananna Vidya Deevena",
+    "official_link": "navasakam.ap.gov.in",
+    "state": "Andhra Pradesh"
+  },
+  {
+    "category": "Employment",
+    "states": [
+      "All"
+    ],
+    "description": "Loans up to 10 lakh to non-corporate, non-farm small/micro enterprises.",
+    "eligibility": {
+      "min_age": 18,
+      "max_age": null,
+      "max_income": null,
+      "education": [],
+      "categories": [],
+      "min_land_acres": null,
+      "max_land_acres": null,
+      "occupations": [
+        "Entrepreneur",
+        "Self-employed"
+      ],
+      "genders": []
+    },
+    "target_beneficiaries": [
+      "all"
+    ],
+    "benefits": [
+      "Collateral free loans"
+    ],
+    "documents_required": [
+      "Business Plan",
+      "Aadhaar"
+    ],
+    "how_to_apply": "Apply via partnered banks.",
+    "status": "active",
+    "id": "SCH005",
+    "name": "PM Mudra Yojana",
+    "official_link": "mudra.org.in",
+    "state": "All"
+  },
+  {
+    "category": "Employment",
+    "states": [
+      "All"
+    ],
+    "description": "Guarantees 100 days of wage employment in a financial year to a rural household.",
+    "eligibility": {
+      "min_age": 18,
+      "max_age": null,
+      "max_income": null,
+      "education": [],
+      "categories": [],
+      "min_land_acres": null,
+      "max_land_acres": null,
+      "occupations": [
+        "Unemployed",
+        "Laborer"
+      ],
+      "genders": []
+    },
+    "target_beneficiaries": [
+      "all"
+    ],
+    "benefits": [
+      "100 days of guaranteed wage employment"
+    ],
+    "documents_required": [
+      "Aadhaar",
+      "Job Card"
+    ],
+    "how_to_apply": "Apply at Gram Panchayat.",
+    "status": "active",
+    "id": "SCH006",
+    "name": "MGNREGA",
+    "official_link": "nrega.nic.in",
+    "state": "All"
+  },
+  {
+    "category": "Healthcare",
+    "states": [
+      "All"
+    ],
+    "description": "Health insurance coverage up to 5 lakhs.",
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": 100000.0,
+      "education": [],
+      "categories": [],
+      "min_land_acres": null,
+      "max_land_acres": null,
+      "occupations": [],
+      "genders": []
+    },
+    "target_beneficiaries": [
+      "all"
+    ],
+    "benefits": [
+      "Health insurance up to Rs 5 Lakhs"
+    ],
+    "documents_required": [
+      "Ration Card",
+      "Aadhaar"
+    ],
+    "how_to_apply": "Check eligibility at PMJAY portal.",
+    "status": "active",
+    "id": "SCH007",
+    "name": "Ayushman Bharat",
+    "official_link": "pmjay.gov.in",
+    "state": "All"
+  },
+  {
+    "category": "Women Welfare",
+    "states": [
+      "All"
+    ],
+    "description": "Small deposit scheme for the girl child.",
+    "eligibility": {
+      "min_age": 0,
+      "max_age": 10,
+      "max_income": null,
+      "education": [],
+      "categories": [],
+      "min_land_acres": null,
+      "max_land_acres": null,
+      "occupations": [],
+      "genders": []
+    },
+    "target_beneficiaries": [
+      "girl_child",
+      "female"
+    ],
+    "benefits": [
+      "High interest rate savings"
+    ],
+    "documents_required": [
+      "Birth Certificate",
+      "Aadhaar of parent"
+    ],
+    "how_to_apply": "Open account in Post Office or Bank.",
+    "status": "active",
+    "id": "SCH008",
+    "name": "Sukanya Samriddhi Yojana",
+    "official_link": "indiapost.gov.in",
+    "state": "All"
+  },
+  {
+    "category": "Women Welfare",
+    "states": [
+      "All"
+    ],
+    "description": "Safe motherhood intervention under National Health Mission.",
+    "eligibility": {
+      "min_age": 19,
+      "max_age": null,
+      "max_income": null,
+      "education": [],
+      "categories": [
+        "BPL",
+        "SC",
+        "ST"
+      ],
+      "min_land_acres": null,
+      "max_land_acres": null,
+      "occupations": [],
+      "genders": []
+    },
+    "target_beneficiaries": [
+      "female",
+      "pregnancy",
+      "maternity"
+    ],
+    "benefits": [
+      "Cash assistance for institutional delivery"
+    ],
+    "documents_required": [
+      "Aadhaar",
+      "BPL Card",
+      "MCH Card"
+    ],
+    "how_to_apply": "Via ASHA worker or Govt Hospital.",
+    "status": "active",
+    "id": "SCH009",
+    "name": "Janani Suraksha Yojana",
+    "official_link": "nhm.gov.in",
+    "state": "All"
+  },
+  {
+    "category": "Social Welfare",
+    "states": [
+      "All"
+    ],
+    "description": "National Mission for Financial Inclusion.",
+    "eligibility": {
+      "min_age": 10,
+      "max_age": null,
+      "max_income": null,
+      "education": [],
+      "categories": [],
+      "min_land_acres": null,
+      "max_land_acres": null,
+      "occupations": [],
+      "genders": []
+    },
+    "target_beneficiaries": [
+      "all"
+    ],
+    "benefits": [
+      "Zero balance bank account",
+      "Accident insurance"
+    ],
+    "documents_required": [
+      "Aadhaar",
+      "Photographs"
+    ],
+    "how_to_apply": "Apply at any bank branch.",
+    "status": "active",
+    "id": "SCH010",
+    "name": "PM Jan Dhan Yojana",
+    "official_link": "pmjdy.gov.in",
+    "state": "All"
+  }
+]
