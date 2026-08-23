@@ -24,3 +24,6 @@ Thumbs.db
 
 # Local ChromaDB data
 chroma_db/
+# Local RAG / ChromaDB database
+backend/rag/db/
+chroma_db/
